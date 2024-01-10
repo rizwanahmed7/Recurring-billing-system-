@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#alignment-example" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Payment And Billing System</a>
+      </div>
+    <div class="collapse navbar-collapse" id="alignment-example">
+      <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li><%= link_to "sign out", destroy_user_session_path, method: :delete%></li>
+        <%if current_user.admin?%>
+          <li><%= link_to 'Invite Buyer' , new_user_invitation_path%></li>
+        <%end%>
+        <li><%= link_to 'Create Plan' ,  new_plan_path%></li>
+        <li><%= link_to 'Plan Management' ,  plans_path%></li>
+        <li><%= link_to 'Usage Management' ,  usages_path%></li>
+        <li><%= link_to 'My Subscriptions' , subscriptions_path%></li>
+        <li><%= link_to 'Transaction History' ,  transactions_path%></li>
+        <% else %>
+          <li><%= link_to 'Sign in' , new_user_session_path%></li>
+      <% end %>
+      </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>

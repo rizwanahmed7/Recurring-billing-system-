@@ -1,0 +1,19 @@
+<h2>All Plans</h2>
+<% @plans.each do |plan| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Plan Name : </strong>
+        <%= plan.name %></h3>
+        <br>
+    </div>
+    <div class="panel-heading">
+        <strong>Monthly Fee: </strong>
+        <%= number_to_currency(plan.monthly_fee) %>
+        <br><br>
+        <%= link_to "Show Plan", plan_path(plan), class: 'btn btn-primary' %>
+        <% if find_active_subscription(plan) == false %>
+          <%= link_to "Already Buyed", class: 'btn btn-primary'  %>
+        <%end%>
+    </div>
+  </div>
+<% end %>

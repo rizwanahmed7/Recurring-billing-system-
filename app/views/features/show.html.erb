@@ -1,0 +1,27 @@
+<h1>All Usages</h1>
+<% @feature.usages.each do |usage| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-heading">
+        <strong>Quantity Used  : </strong>
+        <%= usage.usage_quantity %></h3>
+        <br>
+      </div>
+    <div class="panel-heading">
+      <strong>Over Usage Bill </strong>
+      <%= usage.over_usage_bill %></h3>
+      <br>
+    </div>
+    <div class="panel-heading">
+      <strong>Used At </strong>
+      <%= usage.created_at %></h3>
+      <br>
+    </div>
+      <div class="panel-heading">
+      <strong>Bill </strong>
+      <%= usage.over_usage_bill %></h3>
+      <br>
+    </div>
+    </div>
+ </div>
+ <%end%>

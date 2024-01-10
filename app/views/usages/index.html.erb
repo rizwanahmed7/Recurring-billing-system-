@@ -1,0 +1,25 @@
+
+<h1>Usage Management</h1>
+<% @usages.each do |usage| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Quantity Used :</th>
+        <th>Bill For Qualtity </th>
+        <th>Used At</th>
+        <th>Buyer Name:</th>
+        <th>Feature Name:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= usage.usage_quantity %> </td>
+        <td> <%= usage.over_usage_bill %></td>
+        <td> <%= usage.created_at.to_date %></td>
+        <td> <%= usage.user.name %></td>
+        <td> <%= usage.feature.name%></td>
+        <td> <%= link_to "Edit Usage Qualtity", edit_usage_path(usage.id) %></td>
+      </tr>
+    </tbody>
+  </table>
+ <%end%>

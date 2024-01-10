@@ -1,0 +1,27 @@
+<h1>Transaction History</h1>
+<% if @transactions != nil %>
+  <% @transactions.each do |transaction|%>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transaction ID :</th>
+          <th>Buyer Name</th>
+          <th> Subscription Date</th>
+          <th> Subscription Stripe ID</th>
+          <th> Plan Name</th>
+          <th> Plan Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= transaction.id %> </td>
+          <td> <%= transaction.user.name %> </td>
+          <td> <%= transaction.subscription.date %> </td>
+          <td> <%= transaction.subscription.stripe_id %> </td>
+          <td> <%= transaction.subscription.plan.name %> </td>
+          <td> <%= number_to_currency(transaction.subscription.plan.monthly_fee)%> </td>
+        </tr>
+      </tbody>
+    </table>
+  <%end%>
+<%end%>

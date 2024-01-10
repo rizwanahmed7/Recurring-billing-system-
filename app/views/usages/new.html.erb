@@ -1,0 +1,15 @@
+<h1>add usage<h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_with model: @usage , url: feature_usages_path do |form| %>
+      <div class="field form-group">
+      <% form.label :usage_quantity %><br />
+      <%= form.number_field :usage_quantity,required: true, autofocus: true, min: 0,autocomplete: "name", class: "form-control", placeholder: "Usage Quantity" %>
+      </div>
+    <div class="actions">
+      <%= form.submit "Add Usage", class: "btn btn-primary" %>
+    </div>
+      <%= form.hidden_field :feature_id  %>
+  </div>
+<% end %> 
+</div>

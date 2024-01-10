@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <div class="panel-heading">
+        <strong>Feature Name : </strong>
+        <%= feature.name %></h3>
+        <br>
+      </div>
+      <div class="panel-heading">
+        <strong>Feature Code : </strong>
+        <%= feature.code %></h3>
+        <br>
+      </div>
+      <div class="panel-heading">
+        <strong>Unit Prce : </strong>
+        <%= feature.unit_price %></h3>
+        <br>
+      </div>
+      <div class="panel-heading">
+        <strong>Max Unit limit : </strong>
+        <%= feature.max_unit_limit %></h3>
+        <br>
+      </div>
+        <%if current_user.role == "buyer"%>
+        <% unless find_active_subscription(feature.plan) %>
+          <div class="panel-heading">
+            <%= link_to "Use Feature", new_feature_usage_path(feature.id),class: 'btn btn-primary' %>
+          </div>
+          <div class="panel-heading">
+            <%= link_to ' See Usage History' , feature_path(feature.id) ,class: 'btn btn-primary'%>
+          </div>
+        <%end%>
+        <%end%>
+    </div>
+</div>
+

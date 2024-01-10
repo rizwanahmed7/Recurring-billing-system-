@@ -1,0 +1,19 @@
+<h1>Your Subscriptions</h1>
+<% if @subscriptions != nil %>
+  <% @subscriptions.each do |subscription| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Subscribed At:</th>
+            <th>See Plan </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> <%= subscription.date.to_date %> </td>
+            <td> <%= link_to " click here ",  plan_path(subscription.plan.id)%></td>
+          </tr>
+        </tbody>
+      </table>
+  <%end%>
+<%end%>
