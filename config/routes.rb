@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get 'success', on: :collection
   end
 
+  resources :usages, only: [:index]
+  resources :transactions, only: [:index]
   
 end
   
